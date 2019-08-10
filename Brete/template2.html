@@ -183,11 +183,11 @@
     }
 
     function onMessageArrived(message, topic) {
-    console.log("onMessageArrived:"+message.payloadString);
-    }
-
-    data.push();
-    chart.series[0].setData(data)
+      const humMessage = JSON.parse(message.payloadString).humidity;
+      console.log("onMessageArrived:"+humMessage);
+      data.push(humMessage);
+      chart.series[0].setData(data);
+    };
 
   </script>
 </body>
