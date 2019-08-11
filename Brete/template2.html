@@ -28,6 +28,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <style media="screen">
+    #humImg{
+      width:100px;
+      height:100px;
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+    .mildHumidity{
+      background-image:url('promete.png');
+    }
+    .altoHumidity{
+      background-image:url('humedo.png');
+    }
+    .bajaHumidity{
+      background-image:url('seco.png');
+    }
+  </style>
 </head>
 
 <body>
@@ -89,6 +106,12 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+          <h1>Abeja de acuerdo a la humedad</h1>
+          <div id="humImg" class="mildHumidity">
+
+          </div>
+        </div>
+        <div class="container-fluid">
           <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
       </div>
@@ -119,13 +142,16 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
+
+
   <script type="text/javascript">
+
     var chart = Highcharts.chart('container', {
         chart: {
             type: 'line'
         },
         title: {
-            text: 'Humedad de la colmena'
+            text: 'humedad de la colmena'
         },
         subtitle: {
             text: 'Échele miel'
@@ -187,9 +213,21 @@
       console.log("onMessageArrived:"+humMessage);
       data.push(humMessage);
       chart.series[0].setData(data);
+      imagen(parseInt(humMessage));
+    }
+
+    function imagen(humMessage){
+      if (humMessage > 60){
+        document.getElementById("humImg").className = "altoHumidity";
+      } else if (humMessage < 20) {
+        document.getElementById("humImg").className = "bajaHumidity";
+      } else {
+        document.getElementById("humImg").className = "mildHumidity";
+      }
     };
 
   </script>
+
 </body>
 
 </html>

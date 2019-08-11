@@ -28,6 +28,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <style media="screen">
+    #tempImg{
+      width:100px;
+      height:100px;
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+    .mildTemperature{
+      background-image:url('promete.png');
+    }
+    .hotTemperature{
+      background-image:url('calor.png');
+    }
+    .coldTemperature{
+      background-image:url('frio.png');
+    }
+  </style>
 </head>
 
 <body>
@@ -89,6 +106,12 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
+          <h1>Abeja de acuerdo a la temperatura</h1>
+          <div id="tempImg" class="mildTemperature">
+
+          </div>
+        </div>
+        <div class="container-fluid">
           <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
         </div>
       </div>
@@ -119,7 +142,10 @@
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
 
+
+
   <script type="text/javascript">
+
     var chart = Highcharts.chart('container', {
         chart: {
             type: 'line'
@@ -187,6 +213,17 @@
       console.log("onMessageArrived:"+tempMessage);
       data.push(tempMessage);
       chart.series[0].setData(data);
+      imagen(parseInt(tempMessage));
+    }
+
+    function imagen(tempMessage){
+      if (tempMessage > 27){
+        document.getElementById("tempImg").className = "hotTemperature";
+      } else if (tempMessage < 18) {
+        document.getElementById("tempImg").className = "coldTemperature";
+      } else {
+        document.getElementById("tempImg").className = "mildTemperature";
+      }
     };
 
   </script>
