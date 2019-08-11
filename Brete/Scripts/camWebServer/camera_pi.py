@@ -38,6 +38,7 @@ class Camera(object):
             camera.resolution = (320, 240)
             camera.hflip = True
             camera.vflip = True
+	    camera.awb_mode = "off"
 
             # let camera warm up
             camera.start_preview()

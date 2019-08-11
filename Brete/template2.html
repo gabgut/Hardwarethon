@@ -28,12 +28,17 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <style media="screen">
     #humImg{
       width:300px;
       height:300px;
       background-repeat:no-repeat;
       background-size:cover;
+      margin: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
     .mildHumidity{
       background-image:url('promete.png');
@@ -50,7 +55,7 @@
 <body>
 
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white">
+    <div class="sidebar" data-color="orange" data-background-color="white">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -64,24 +69,29 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="inicio.html" style="margin-bottom: 20px;">
-              <i class="material-icons">dashboard</i>
-              <p>Inicio</p>
+            <a class="nav-link" href="inicio.html" style="margin-bottom: 30px;">
+              <i class="material-icons">adb</i>
+              <p style = "font-family: 'Quicksand';font-style:sans-serif;font-size:20px">
+              INICIO</p>
             </a>
-            <a class="nav-link" href="template.html" style="margin-bottom: 20px;">
-              <i class="material-icons">dashboard</i>
-              <p>Temperatura</p>
+            <a class="nav-link" href="template.html" style="margin-bottom: 30px;">
+              <i class="material-icons">ac_unit</i>
+              <p style = "font-family: 'Quicksand';font-style:sans-serif;font-size:20px">
+              TEMPERATURA</p>
             </a>
-            <a class="nav-link" href="#0" style="margin-bottom: 20px;">
-              <i class="material-icons">dashboard</i>
-              <p>Humedad</p>
-              <a class="nav-link" href="streaming.html" style="margin-bottom: 20px;">
-                <i class="material-icons">dashboard</i>
-                <p>Streaming</p>
+            <a class="nav-link" href="template2.html" style="margin-bottom: 30px;">
+              <i class="material-icons">opacity</i>
+              <p style = "font-family: 'Quicksand';font-style:sans-serif;font-size:20px">
+              HUMEDAD</p>
+              <a class="nav-link" href="streaming.html" style="margin-bottom: 30px;">
+                <i class="material-icons">voice_chat</i>
+                <p style = "font-family: 'Quicksand';font-style:sans-serif;font-size:20px">
+                STREAMING</p>
               </a>
-              <a class="nav-link" href="info.html" style="margin-bottom: 20px;">
-                <i class="material-icons">dashboard</i>
-                <p>Información</p>
+              <a class="nav-link" href="info.html" style="margin-bottom: 30px;">
+                <i class="material-icons">feedback</i>
+                <p style = "font-family: 'Quicksand';font-style:sans-serif;font-size:20px">
+                INFORMACIÓN</p>
               </a>
             </a>
           </li>
@@ -107,7 +117,8 @@
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <h1>Abeja de acuerdo a la humedad</h1>
+          <h1 style = "font-family: 'Roboto'; font-style:sans-serif; font-size:48px; margin-top: -50px; text-align: center">
+            Abeja de acuerdo a la humedad</h1>
           <div id="humImg" class="mildHumidity">
 
           </div>
@@ -154,7 +165,7 @@
             type: 'line'
         },
         title: {
-            text: 'humedad de la colmena'
+            text: 'Humedad de la colmena'
         },
         subtitle: {
             text: 'Échele miel'
@@ -178,7 +189,7 @@
             }
         },
         series: [{
-            name: 'Tiquicia',
+            name: 'Datos recolectados de humedad',
             data: []
         } ]
     });
